@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Type defaults — system sans only; tabular figures only where columns align. */
+html {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+}
+
+/* Date inputs: keep native pickers, just harmonise the colour. */
+input[type='date'] {
+  color-scheme: light;
+}
+
+/* Recharts needs a size; guard against zero-height flash before hydration. */
+.recharts-wrapper,
+.recharts-surface {
+  overflow: visible;
+}
+
+/* Focus visibility for keyboard users on custom controls */
+button:focus-visible,
+input:focus-visible,
+label:focus-visible {
+  outline: 2px solid #2a78d6;
+  outline-offset: 2px;
+}
+
+/* Scrollbars inside table/panel */
+.overflow-auto::-webkit-scrollbar,
+.overflow-x-auto::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+.overflow-auto::-webkit-scrollbar-thumb,
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #d6d4cc;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.overflow-auto::-webkit-scrollbar-track,
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
